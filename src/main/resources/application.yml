@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 19991102
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.37.241:3306/xusan
+
+  #Redis配置
+  redis:
+    cluster:
+      nodes: 192.168.37.240:7000,192.168.37.240:7001,192.168.37.240:7002,192.168.37.240:7003,192.168.37.240:7004,192.168.37.240:7005,192.168.37.240:7006,192.168.37.240:7007
+    timeout: 6000ms
+    database: 0
+
+  #ES配置
+  data:
+    elasticsearch:
+      cluster-nodes: 192.168.37.240:9300,192.168.37.240:9301,192.168.37.240:9302
+      cluster-name: my-es
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+mybatis:
+  type-aliases-package: com.baizhi.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+logging:
+  level:
+    root:
+    com.baizhi.dao: debug
+
+server:
+  port: 8989
+  tomcat:
+    uri-encoding: UTF-8
